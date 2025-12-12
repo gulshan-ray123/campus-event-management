@@ -10,7 +10,7 @@ function CoverSection() {
   animate={{ scale: 1, opacity: 1 }}
   transition={{ duration: 0.6 }}
 
- className="bg-[url('./src/college_event.png')] md:bg-contain bg-center h-[620px] w-full bg-cover">
+ className="bg-[url('https://res.cloudinary.com/duowihcq0/image/upload/v1765553480/Gemini_Generated_Image_5lten35lten35lte_ci9doy.png')] md:bg-contain bg-center h-[620px] w-full bg-cover">
       <span className='flex absolute top-[50%] md:w-1/2 w-full ml-4'><motion.h1    initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: 'easeOut', delay: 0.7 }}
