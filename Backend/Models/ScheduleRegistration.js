@@ -1,0 +1,70 @@
+const mongoose= require('mongoose');
+
+const scheduleSchema= mongoose.Schema({
+    eventID:{
+        type:String,
+        require:true,
+    },
+    eventName:{
+        type:String,
+        require:true,
+    },
+      eventDate:{
+        type:String,
+        require:true,
+    },
+    openTime:{
+        type:String,
+        require:true,
+    },
+      closeTime:{
+        type:String,
+        require:true,
+    },
+    venue:{
+        type:String,
+        require:true,
+    },
+      theme:{
+        type:String,
+        require:true,
+    },
+    description:{
+        type:String,
+        require:true,
+    },
+    eventBanner:{
+        type:String,
+        require:true,
+    },
+    guest_img1:{
+        type:String,
+        require:true,
+    },
+      guest_img2:{
+        type:String,
+        require:true,
+    },
+    guest_img3:{
+        type:String,
+        require:true,
+    },
+      passType:{
+        type:String,
+        require:true,
+    },
+    orgDepartment:{
+        type:String,
+        require:true,
+    },
+      totalTicket:{
+        type:String,
+        require:true,
+    },
+    chiefGuest:{
+        type:String,
+        require:true,
+    },
+});
+
+module.exports= mongoose.model('ScheduleRegistration', scheduleSchema);
