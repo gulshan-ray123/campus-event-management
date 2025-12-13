@@ -1,5 +1,4 @@
 const userModel = require("../Models/userRegistraion");
-const organiserModel= require('../Models/OrganiserRegistration');
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");

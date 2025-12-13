@@ -4,7 +4,6 @@
 const userModel= require("../Models/userRegistraion");
 const organiserModel= require("../Models/OrganiserRegistration");
 const bcrypt= require('bcrypt');
-const OrganiserRegistration = require("../Models/OrganiserRegistration");
 const { date } = require("zod");
 const Register= async(req,res)=>{
 try {
@@ -19,17 +18,20 @@ try {
    const key= str.concat(Math.floor(Math.random()*900)+100);
    
     let newUserRegistered;
-   if(role=="Attendee"){
+
+    const normalizedRole = role.toLowerCase();
+    
+   if(normalizedRole=="attendee"){
     newUserRegistered= await userModel.create({
     username:username,
     email:email,
     phone:phone,
     password:hash,
     dob:dob,
-    role:role
+    role:"Attendee"
     })
     console.log(newUserRegistered);
-   res.status(200).json({msg:"New Attendee generated"});
+   res.status(200).json({msg:"New Attendee generated"},{newUserRegistered});
    }
 
    else{
