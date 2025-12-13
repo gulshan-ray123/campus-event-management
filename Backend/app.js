@@ -12,7 +12,7 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 const corsOptions={
-    origin:"http://localhost:5173",
+    origin:"https://campus-event-management-tau.vercel.app/",
     methods:"POST, PUT, DELETE, GET, PATCH, HEAD",
     credentials:true,
 }

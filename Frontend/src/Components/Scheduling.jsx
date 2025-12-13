@@ -50,7 +50,7 @@ const handleSubmit = async (e) => {
     if (files[key]) fd.append(key, files[key]);
   });
 
-  const res = await fetch("http://localhost:3000/event/create", {
+  const res = await fetch("https://campus-event-management-yx4y.onrender.com/create", {
     method: "POST",
     body: fd,
   });

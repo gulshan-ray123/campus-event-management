@@ -164,7 +164,7 @@ const SignupForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:3000/register`, {
+      const response = await fetch(`https://campus-event-management-yx4y.onrender.com/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

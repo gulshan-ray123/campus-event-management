@@ -12,7 +12,7 @@ export default function EventDetails() {
   const [event, setEvent] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/event/${eventID}`)
+    fetch(`https://campus-event-management-yx4y.onrender.com/event/${eventID}`)
       .then((res) => res.json())
       .then((data) => setEvent(data))
       .catch((err) => console.error("Error fetching event:", err));

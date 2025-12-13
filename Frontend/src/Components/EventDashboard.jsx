@@ -124,7 +124,7 @@ export default function StudentEventDashboard() {
 
   // Fetch events from backend
   useEffect(() => {
-    fetch("http://localhost:3000/event/all")
+    fetch("https://campus-event-management-yx4y.onrender.com/event/all")
       .then((res) => res.json())
       .then((data) => {
         setEvents(data);

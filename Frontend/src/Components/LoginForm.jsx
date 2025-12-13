@@ -25,8 +25,8 @@ const CombinedLogin = () => {
 
     const endpoint =
       mode === "user"
-        ? "http://localhost:3000/login"
-        : "http://localhost:3000/organiser-login";
+        ? "https://campus-event-management-yx4y.onrender.com/login"
+        : "https://campus-event-management-yx4y.onrender.com/organiser-login";
 
     const response = await fetch(endpoint, {
       method: "POST",
