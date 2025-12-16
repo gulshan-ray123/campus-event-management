@@ -24,7 +24,7 @@ const eventRegistationSchema= mongoose.Schema({
     event:{
         type:String,
         require:true,
-    }
+    },
 })
 
 module.exports=mongoose.model('eventRegister',eventRegistationSchema);

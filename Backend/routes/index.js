@@ -19,6 +19,7 @@ const upload = require('../Middleware/upload');
 const eventController = require('../Controllers/Scheduling'); 
 const getSingleEvent= require('../Controllers/GetEvent');
 const getEvent= require('../Controllers/GetAllEvent');
+const qrDecoded= require('../Controllers/qrScanInfo');
 
 // const QRsend= require('../Controllers/Scanner');
 /* GET home page. */
@@ -34,6 +35,7 @@ app.route('/admin/register').post(adminRegister);
 // app.route('/ScannerRoute').post(QRsend);
 app.route('/admin/login').post(adminLogin);
 app.route('/organiser-login').post(organiserLogin);
+app.route('/api/scan').post(qrDecoded);
 
 app.post(
   '/event/create',

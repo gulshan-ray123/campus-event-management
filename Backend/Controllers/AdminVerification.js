@@ -15,8 +15,7 @@ const adminVerify= async(req,res)=>{
         if(studentDetail){
             const updatedUserStatus= await organiserModel.findOneAndUpdate({studentId},{
                 $set:{
-                     verification_status:status,
-                      
+                     verification_status:status,         
                 }
             })
         }

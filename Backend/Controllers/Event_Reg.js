@@ -98,6 +98,7 @@ const QRCode = require('qrcode');
 const nodemailer = require('nodemailer');
 const puppeteer = require('puppeteer');   
 const scheduleModel= require('../Models/ScheduleRegistration');
+const qrModel= require('../Models/qrId');
 require('dotenv').config();
 
 
@@ -138,6 +139,13 @@ const eventRegister = async (req, res) => {
           registeredAt: Date.now(),
         });
         const qrDataUrl = await QRCode.toDataURL(payload);
+
+        const qrData= await qrModel.create({
+          qrDataUrl
+        })
+
+        console.log(qrData);
+        
 
         if(!scheduleDetails){
           res.status(400).json({msg:"Schedule Not found"});
