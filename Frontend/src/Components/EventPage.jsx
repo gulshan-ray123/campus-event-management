@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { NavLink } from "react-router-dom";
-import {
-  CalendarDaysIcon,
-  TicketIcon,
-  BellIcon,
-} from "@heroicons/react/24/outline";
+import { useParams, NavLink } from "react-router-dom";
+import { TicketIcon } from "@heroicons/react/24/outline";
 
 export default function EventDetails() {
   const { eventID } = useParams();
@@ -19,88 +14,76 @@ export default function EventDetails() {
   }, [eventID]);
 
   if (!event)
-    return <p className="text-white p-6 text-center">Loading...</p>;
+    return <p className="p-6 text-center">Loading...</p>;
 
   return (
-    <div className="h-screen w-screen font-sans bg-gray-50 flex flex-col">
+    <div className="min-h-screen w-full font-sans bg-gray-50 flex flex-col">
 
+      {/* ---------------- HERO SECTION ---------------- */}
       <div
-        className="flex-1 bg-cover bg-center relative"
+        className="h-64 md:h-[50vh] bg-cover bg-center relative"
         style={{ backgroundImage: `url(${event.eventBanner})` }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white text-center drop-shadow-lg">
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center px-4">
+          <h1 className="text-3xl md:text-5xl font-bold text-white text-center">
             {event.eventName}
           </h1>
         </div>
       </div>
 
-      <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 p-4 bg-white">
-
-        {/* ABOUT SECTION */}
+      {/* ---------------- ABOUT + DETAILS ---------------- */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 bg-white">
         <div className="bg-gray-100 rounded-lg p-4 shadow">
-          <h2 className="text-xl font-bold mb-2">About</h2>
+          <h2 className="text-lg font-bold mb-2">About</h2>
           <p className="text-sm text-gray-700">
             {event.description || "No description available"}
           </p>
         </div>
 
-        {/* EVENT DETAILS */}
         <div className="bg-gray-100 rounded-lg p-4 shadow">
-          <h2 className="text-xl font-bold mb-2">Details</h2>
+          <h2 className="text-lg font-bold mb-2">Details</h2>
           <ul className="text-sm text-gray-700 space-y-1">
-            <li><strong>EventID:</strong> {event.eventID}</li>
+            <li><strong>ID:</strong> {event.eventID}</li>
             <li><strong>Date:</strong> {event.eventDate}</li>
             <li><strong>Time:</strong> {event.openTime} – {event.closeTime}</li>
             <li><strong>Venue:</strong> {event.venue}</li>
             <li><strong>Theme:</strong> {event.theme}</li>
           </ul>
         </div>
-
       </div>
 
-      {/* ---------------- BOTTOM GUESTS + REGISTER BUTTON ---------------- */}
-      <div className="flex-1 relative bg-gray-200">
+      {/* ---------------- GUESTS + REGISTER ---------------- */}
+      <div className="relative bg-gray-200 py-8">
 
-        {/* CENTER GUEST IMAGES */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center space-y-4">
+        {/* Guests */}
+        <div className="flex flex-col items-center space-y-4">
           <h2 className="text-xl font-bold text-gray-800">Special Guests</h2>
 
-          <div className="flex space-x-6">
-            {event.guest_img1 && (
-              <img
-                src={event.guest_img1}
-                alt="Guest 1"
-                className="w-20 h-20 rounded-full object-cover border-2 border-white shadow"
-              />
-            )}
-            {event.guest_img2 && (
-              <img
-                src={event.guest_img2}
-                alt="Guest 2"
-                className="w-20 h-20 rounded-full object-cover border-2 border-white shadow"
-              />
-            )}
-            {event.guest_img3 && (
-              <img
-                src={event.guest_img3}
-                alt="Guest 3"
-                className="w-20 h-20 rounded-full object-cover border-2 border-white shadow"
-              />
-            )}
+          <div className="flex flex-wrap justify-center gap-4">
+            {[event.guest_img1, event.guest_img2, event.guest_img3]
+              .filter(Boolean)
+              .map((img, i) => (
+                <img
+                  key={i}
+                  src={img}
+                  alt={`Guest ${i + 1}`}
+                  className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-2 border-white shadow"
+                />
+              ))}
           </div>
         </div>
 
-        {/* REGISTER BUTTON BOTTOM RIGHT */}
-       <div className="mt-4 md:absolute md:bottom-12 md:right-10 flex justify-center">
-  <NavLink to="/EventRegistration">
-    <button className="flex items-center justify-center gap-2 bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition">
-      <TicketIcon className="h-5 w-5" />
-      View Details / Register
-    </button>
-  </NavLink>
-</div>
+        {/* Register Button */}
+        <div className="mt-6 md:absolute md:bottom-6 md:right-8 flex justify-center">
+          <NavLink to="/EventRegistration">
+            <button className="flex items-center gap-2 bg-indigo-600 text-white py-2 px-6 rounded-lg hover:bg-indigo-700 transition">
+              <TicketIcon className="h-5 w-5" />
+              View Details / Register
+            </button>
+          </NavLink>
+        </div>
       </div>
+
     </div>
   );
 }
