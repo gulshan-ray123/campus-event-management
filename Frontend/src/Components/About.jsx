@@ -44,7 +44,7 @@ function About() {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8 }}>
-       <section className="bg-gradient-to-t from-yellow-500 to-orange-200 py-16 px-6 md:px-20">
+       <section className="bg-gradient-to-t from-yellow-500 to-orange-200 py-16 px-6 md:px-20" id='about'>
       <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-4xl font-bold text-orange-700 mb-4">About Campus Connect</h2>
         <p className="text-lg text-gray-700 mb-10">

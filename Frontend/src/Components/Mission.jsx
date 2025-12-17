@@ -36,7 +36,7 @@ const missions = [
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8  }}
 >
-       <section className="py-12 bg-gradient-to-b from-yellow-500 to-orange-200">
+       <section className="py-12 bg-gradient-to-b from-yellow-500 to-orange-200" id='mission'>
       <h2 className="text-4xl font-bold text-center text-orange-600 mb-8">
         Our Mission
       </h2>
