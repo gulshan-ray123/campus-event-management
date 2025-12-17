@@ -78,12 +78,12 @@ const CombinedLogin = () => {
       {/* Form */}
       <form onSubmit={handleSubmit} className="bg-white shadow-lg rounded-xl p-8 space-y-5">
         <h2 className="text-2xl font-bold text-center">
-          {mode === "user" ? "Login to Online Bhandara" : "Organiser Login"}
+          {mode === "user" ? "Login to Campus Connect" : "Organiser Login"}
         </h2>
 
         {/* Common fields */}
         <input
-          type="email"
+          type="text"
           placeholder="xyz@gmail.com"
           value={formData.identifier}
           name="identifier"
