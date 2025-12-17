@@ -178,10 +178,9 @@ const EventRegistration = () => {
     e.preventDefault();
 
     try {
-      const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "https://campus-event-management-yx4y.onrender.com//student/eventRegistration",
+        "https://campus-event-management-yx4y.onrender.com/student/eventRegistration",
         {
           method: "POST",
           headers: {
