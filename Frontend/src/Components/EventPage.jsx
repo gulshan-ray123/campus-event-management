@@ -92,9 +92,9 @@ export default function EventDetails() {
         </div>
 
         {/* REGISTER BUTTON BOTTOM RIGHT */}
-        <div className="absolute md:bottom-12 right-10 top-10">
+        <div className="absolute md:bottom-12 right-10">
             <NavLink to="/EventRegistration">
-      <button className="mt-4 flex items-center justify-center gap-2 bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition">
+      <button className="mt-4 flex items-center justify-center gap-2 bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition top-12 md:top-0">
         <TicketIcon className="h-5 w-5" />
         View Details / Register
       </button>
