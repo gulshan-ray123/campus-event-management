@@ -181,7 +181,7 @@ const EventRegistration = () => {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://localhost:5000/api/event/register", // 🔁 change if needed
+        "https://campus-event-management-yx4y.onrender.com//student/eventRegistration",
         {
           method: "POST",
           headers: {
