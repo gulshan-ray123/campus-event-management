@@ -174,46 +174,48 @@ const EventRegistration = () => {
   };
 
   // ✅ COMPLETE FUNCTION
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+ const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    try {
+  try {
+    const token = localStorage.getItem("token"); 
+    
+    console.log(token);
 
-      const response = await fetch(
-        "https://campus-event-management-yx4y.onrender.com/student/eventRegistration",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-
-      const data = await response.json();
-
-      if (response.ok) {
-        alert("🎉 Event Registered Successfully!");
-        console.log(data);
-
-        // optional: reset form
-        setFormData({
-          studentId: "",
-          name: "",
-          email: "",
-          password: "",
-          department: "",
-          year: "",
-          eventID: "",
-        });
-      } else {
-        alert(data.msg || "Registration failed");
+    const response = await fetch(
+      "https://campus-event-management-yx4y.onrender.com/eventRegistration",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(formData),
       }
-    } catch (error) {
-      console.error("Registration Error:", error);
-      alert("Server error. Try again later.");
+    );
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert("🎉 Event Registered Successfully!");
+      setFormData({
+        studentId: "",
+        name: "",
+        email: "",
+        password: "",
+        department: "",
+        year: "",
+        eventID: "",
+      });
+    } else {
+      alert(data.msg || "Registration failed");
     }
-  };
+  } catch (error) {
+    console.error(error);
+    alert("Server error");
+  }
+};
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-6">
