@@ -54,8 +54,8 @@ const requireUserAuth = (req, res, next) => {
       return res.status(401).json({ msg: "Invalid Token" });
     }
 
-    req.user = decodedToken; // attach user info
-    next(); // ✅ allow request
+    req.user = decodedToken; 
+    next(); 
   });
 };
 

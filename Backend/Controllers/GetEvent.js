@@ -5,7 +5,7 @@ const getSingleEvent = async (req, res) => {
     const eventID = req.params.eventID;
 
     const event = await scheduleModel.findOne({ eventID });
-
+    
     if (!event) {
       return res.status(404).json({ message: "Event not found" });
     }

@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion';
+import { NavLink } from 'react-router-dom';
 
 function CoverSection() {
   const text = "Join Us In Creating Events, Spreading Joy";
@@ -19,12 +20,12 @@ function CoverSection() {
   animate={{ scale: 1, opacity: 1 }}
   transition={{ duration: 0.6, delay:5 }}
  className='absolute  md:top-[-120px] lg:top-24 top-28'>
-    <button className="bg-orange-500 text-white px-4 py-2  hover:bg-orange-600 hover:border-yellow-300 hover:border-2 transition w-36 p-5 rounded-lg">
+   <NavLink to="/Dashboard"> <button className="bg-orange-500 text-white px-4 py-2  hover:bg-orange-600 hover:border-yellow-300 hover:border-2 transition w-36 p-5 rounded-lg">
             Explore Events
-            </button>
-            <button className="bg-white border border-orange-500 md:top-[-120px] lg:top-24 text-orange-500 px-4 py-2 rounded hover:bg-orange-100 transition md:ml-20 w-48 p-5 hover:border-b-red-600 hover:border-2 mr-10 mt-5 ">
+            </button></NavLink>
+          <NavLink to="OrganiserDashboard">  <button className="bg-white border border-orange-500 md:top-[-120px] lg:top-24 text-orange-500 px-4 py-2 rounded hover:bg-orange-100 transition md:ml-20 w-48 p-5 hover:border-b-red-600 hover:border-2 mr-10 mt-5 ">
             Become a Voulenteer
-            </button>
+            </button></NavLink>
 </motion.span>
      <motion.div
     className="text-[18px] md:text-3xl text-white italic absolute  top-64   md:ml-0 lg:top-14"

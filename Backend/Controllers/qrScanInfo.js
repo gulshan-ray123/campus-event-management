@@ -26,7 +26,6 @@ const qrScannerDecoded= async(req,res)=>{
     success: true,
     message: "Access Granted ✅",
   });
-
 }
 
 
